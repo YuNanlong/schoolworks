@@ -1,0 +1,28 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/data.h
+iostream
+-
+
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/list.cpp
+list.h
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/list.h
+
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/list.h
+data.h
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/data.h
+iostream
+-
+
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/main.cpp
+iostream
+-
+list.h
+/Users/yunanlong/Desktop/git-repositories/schoolworks/oop/list/list.h
+
