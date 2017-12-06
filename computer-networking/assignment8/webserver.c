@@ -282,7 +282,7 @@ void *service(void *para){
     char filepath[URL_BUFFER_SIZE]; //存储文件路径的缓冲区
     struct ClientRecord *client_record;
     struct stat stat_buffer;
-    int method, filetype, status_code;
+    int method, filetype, status_code, ret;
 
     client_record = search_client(&client_list, client_id); //根据id获取当前连接的客户端信息
     if(client_record == NULL){ //没有找到客户端
@@ -296,7 +296,8 @@ void *service(void *para){
         if(is_http_request(recv_buffer) == TRUE){
             if(parse_requset_head(recv_buffer, url_buffer) == GET){
                 get_file_path(filepath, url_buffer);
-                if(stat(filepath, &stat_buffer) == -1){
+                ret = stat(filepath, &stat_buffer);
+                if(ret == -1 || S_ISDIR(stat_buffer.st_mode) != 0){
                     printf("%s cannot be found\n", filepath);
                     filetype = HTML;
                     status_code = 404;
